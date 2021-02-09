@@ -3,6 +3,7 @@ using Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace DataAccess.Concrete.InMemory
@@ -13,9 +14,9 @@ namespace DataAccess.Concrete.InMemory
         public InMemoryCarDal()
         {
             _car = new List<Car> {
-            new Car { Id = 1, BrandId = 1, ColorId = 1, DailyPrice = 150, Description = "BMW" },
-            new Car { Id = 1, BrandId = 1, ColorId = 1, DailyPrice = 150, Description = "AUDI" },
-            new Car { Id = 1, BrandId = 1, ColorId = 1, DailyPrice = 150, Description = "MERCEDES" }
+            new Car { Id = 1, BrandName = "BMW", ColorId = 1, DailyPrice = 150, Description = "BMW CAR" },
+            new Car { Id = 1, BrandName = "AUDI", ColorId = 1, DailyPrice = 150, Description = "AUDI CAR" },
+            new Car { Id = 1, BrandName = "MERCEDES", ColorId = 1, DailyPrice = 150, Description = "MERCEDES CAR"}
 
            };
         }
@@ -34,9 +35,19 @@ namespace DataAccess.Concrete.InMemory
             _car.Remove(carToDelete);
         }
 
+        public Car Get(Expression<Func<Car, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Car> GetAll()
         {
             return _car;
+        }
+
+        public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
+        {
+            throw new NotImplementedException();
         }
 
         public List<Car> GetByAll(int Id)
@@ -46,7 +57,7 @@ namespace DataAccess.Concrete.InMemory
 
         public List<Car> GetByAllBrandId(int BrandId)
         {
-            return _car.Where(c => c.BrandId == BrandId).ToList();
+            return _car.Where(c => c.BrandName == c.BrandName).ToList();
         }
 
         public List<Car> GetById()
@@ -59,7 +70,7 @@ namespace DataAccess.Concrete.InMemory
             //LINQ
             Car carToUpdate =  _car.SingleOrDefault(c => c.Id == car.Id);
             carToUpdate.ColorId = car.ColorId;
-            carToUpdate.BrandId = car.BrandId;
+            carToUpdate.BrandName = car.BrandName;
             carToUpdate.DailyPrice = car.DailyPrice;
             carToUpdate.Description = car.Description;
             carToUpdate.ModelYear = car.ModelYear;
