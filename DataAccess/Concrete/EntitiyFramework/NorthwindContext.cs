@@ -17,10 +17,5 @@ namespace DataAccess.Concrete.EntitiyFramework
         public DbSet<Brand> BRANDS{ get; set; }
         public DbSet<Color> COLORS { get; set; }
         public DbSet<Car> CARS { get; set; }
-
-        internal void GetType(object bigint)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

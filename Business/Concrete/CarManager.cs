@@ -9,17 +9,17 @@ namespace Business.Concrete
 {
     public class CarManager : ICarService
     {
-        ICarDal _iCarDal;
+        ICarDal _CarDal;
       
 
-        public CarManager(ICarDal iCarDal)
+        public CarManager(ICarDal carDal)
         {
-            _iCarDal = iCarDal;
+            _CarDal = carDal;
         }
 
         public List<Car> GetAll()
         {
-            return _iCarDal.GetAll();
+            throw new NotImplementedException();
         }
 
         public List<Car> GetByBrandId(int Id)
@@ -27,14 +27,37 @@ namespace Business.Concrete
             throw new NotImplementedException();
         }
 
+        public List<Car> GetByBrandName(string Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Car> GetByBrandName(string MinLength, string MaxLength)
+        {
+            throw new NotImplementedException();
+        }
 
         public List<Car> GetByBrandName(int MinLength, int MaxLength)
         {
-            return _iCarDal.GetAll(c => c.BrandName.Length >= 2 && c.DailyPrice >= 0);
+            throw new NotImplementedException();
         }
 
+        public List<Car> GetByCarName(string Id)
+        {
+            throw new NotImplementedException();
+        }
 
         public List<Car> GetByColorId(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Car> GetByDailyPrice(decimal min, decimal max)
+        {
+            return _CarDal.GetAll(c => c.DailyPrice >= min && c.DailyPrice <= max);
+        }
+
+        public List<Car> GetByDailyPrice(float Id)
         {
             throw new NotImplementedException();
         }
@@ -45,11 +68,6 @@ namespace Business.Concrete
         }
 
         public List<Car> GetByModelYear(int Id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Car> GetByName(string Id)
         {
             throw new NotImplementedException();
         }

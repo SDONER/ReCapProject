@@ -7,34 +7,34 @@ using System.Text;
 
 namespace DataAccess.Concrete.EntitiyFramework
 {
-    class EfColorDal : ICategoryDal
+    class EfColorDal : IColorDal
     {
-        public void Add(Category entitiy)
+        public void Add(Color entitiy)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(Category entitiy)
+        public void Delete(Color entitiy)
         {
             throw new NotImplementedException();
         }
 
-        public Category Get(Expression<Func<Category, bool>> filter = null)
+        public Color Get(Expression<Func<Color, bool>> filter)
         {
             throw new NotImplementedException();
         }
 
-        public List<Category> GetAll(Expression<Func<Category, bool>> filter = null)
+        public List<Color> GetAll(Expression<Func<Color, bool>> filter = null)
         {
             throw new NotImplementedException();
         }
 
-        public List<Category> GetById()
+        public List<Color> GetById()
         {
             throw new NotImplementedException();
         }
 
-        public void Update(Category entitiy)
+        public void Update(Color entitiy)
         {
             throw new NotImplementedException();
         }

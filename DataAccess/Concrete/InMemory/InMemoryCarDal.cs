@@ -14,9 +14,9 @@ namespace DataAccess.Concrete.InMemory
         public InMemoryCarDal()
         {
             _car = new List<Car> {
-            new Car { Id = 1, BrandName = "BMW", ColorId = 1, DailyPrice = 150, Description = "BMW CAR" },
-            new Car { Id = 1, BrandName = "AUDI", ColorId = 1, DailyPrice = 150, Description = "AUDI CAR" },
-            new Car { Id = 1, BrandName = "MERCEDES", ColorId = 1, DailyPrice = 150, Description = "MERCEDES CAR"}
+            new Car { Id = 1, CarName = "BMW", ColorId = 1, DailyPrice = 150, Description = "BMW CAR" },
+            new Car { Id = 1, CarName = "AUDI", ColorId = 1, DailyPrice = 150, Description = "AUDI CAR" },
+            new Car { Id = 1, CarName = "MERCEDES", ColorId = 1, DailyPrice = 150, Description = "MERCEDES CAR"}
 
            };
         }
@@ -55,9 +55,9 @@ namespace DataAccess.Concrete.InMemory
             throw new NotImplementedException();
         }
 
-        public List<Car> GetByAllBrandId(int BrandId)
+        public List<Car> GetByAllBrandId(int Id)
         {
-            return _car.Where(c => c.BrandName == c.BrandName).ToList();
+            return _car.Where(c => c.Description == c.Description).ToList();
         }
 
         public List<Car> GetById()
@@ -70,7 +70,6 @@ namespace DataAccess.Concrete.InMemory
             //LINQ
             Car carToUpdate =  _car.SingleOrDefault(c => c.Id == car.Id);
             carToUpdate.ColorId = car.ColorId;
-            carToUpdate.BrandName = car.BrandName;
             carToUpdate.DailyPrice = car.DailyPrice;
             carToUpdate.Description = car.Description;
             carToUpdate.ModelYear = car.ModelYear;
