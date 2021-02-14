@@ -16,5 +16,9 @@ namespace Business.Abstract
         List<Car> GetByBrandName(string Id);
         List<Car> GetByDailyPrice(decimal min, decimal max);
         List<Car> GetByBrandName(int MinLength, int MaxLength);
+        List<Car> GetCarsByBrandId(int Id);
+        List<Car> GetCarsByColorId(int Id);
+
+
     }
 }
