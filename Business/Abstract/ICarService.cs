@@ -1,4 +1,5 @@
-﻿using Entities;
+﻿using Core.Utilities.Results;
+using Entities;
 using Entities.DTOs;
 using System;
 using System.Collections.Generic;
@@ -8,24 +9,24 @@ namespace Business.Abstract
 {
     public interface ICarService
     {
-        List<Car> GetAll();
-        List<Car> GetByBrandId(int Id);
-        List<Car> GetByColorId(int Id);
-        List<Car> GetByCarName(string Id);
-        List<Car> GetByDescription(string Id);
-        List<Car> GetByModelYear(int Id);
-        List<Car> GetByBrandName(string Id);
-        List<Car> GetByDailyPrice(decimal min, decimal max);
-        List<Car> GetByBrandName(int MinLength, int MaxLength);
-        List<Car> GetCarsByBrandId(int Id);
-        List<Car> GetCarsByColorId(int Id);
+        IDataResult<List<Car>> GetAll();
+        IDataResult<List<Car>> GetByBrandId(int Id);
+        IDataResult<List<Car>> GetByColorId(int Id);
+        IDataResult<List<Car>> GetByCarName(string Id);
+        IDataResult<List<Car>> GetByDescription(string Id);
+        IDataResult<List<Car>> GetByModelYear(int Id);
+        IDataResult<List<Car>> GetByBrandName(string Id);
+        IDataResult<List<Car>> GetByDailyPrice(decimal min, decimal max);
+        IDataResult<List<Car>> GetByBrandName(int MinLength, int MaxLength);
+        IDataResult<List<Car>> GetCarsByBrandId(int Id);
+        IDataResult<List<Car>> GetCarsByColorId(int Id);
 
 
-        List<CarDetailDto> GetCarDetails();
+        IDataResult<List<CarDetailDto>> GetCarDetails();
 
-        void Add(Car car);
-        void Update(Car car);
-        void Delete(Car car);
+        IResult Add(Car car);
+        IResult Update(Car car);
+        IResult Delete(Car car);
 
 
     }
