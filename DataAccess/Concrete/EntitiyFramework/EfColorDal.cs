@@ -1,5 +1,7 @@
-﻿using DataAccess.Abstract;
+﻿using Core.DataAccess.EntitiyFramework;
+using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -7,34 +9,9 @@ using System.Text;
 
 namespace DataAccess.Concrete.EntitiyFramework
 {
-    class EfColorDal : IColorDal
+    class EfColorDal : EfEntityRepositoryBase<Color, NorthwindContext>, IColorDal
     {
-        public void Add(Color entitiy)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(Color entitiy)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Color Get(Expression<Func<Color, bool>> filter)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Color> GetAll(Expression<Func<Color, bool>> filter = null)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Color> GetById()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(Color entitiy)
+        public List<CarDetailDto> GetCarDetails()
         {
             throw new NotImplementedException();
         }
