@@ -13,7 +13,7 @@ namespace DataAccess.Concrete.EntitiyFramework
 {
     public class EfBrandDal : EfEntityRepositoryBase<Brand, NorthwindContext>, IBrandDal
     {
-        public List<CarDetailDto> GetCarDetails()
+        public List<ColorDetailDto> GetCarDetails()
         {
             throw new NotImplementedException();
         }

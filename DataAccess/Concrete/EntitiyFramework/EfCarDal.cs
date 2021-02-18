@@ -13,7 +13,7 @@ namespace DataAccess.Concrete.EntitiyFramework
 {
     public class EfCarDal : EfEntityRepositoryBase<Car, NorthwindContext>, ICarDal
     {
-        public List<CarDetailDto> GetCarDetails()
+        public List<ColorDetailDto> GetCarDetails()
         {
             using (NorthwindContext context = new NorthwindContext())
             {
@@ -23,7 +23,7 @@ namespace DataAccess.Concrete.EntitiyFramework
                              join color in context.Colors
                              on car.ColorId equals color.ColorId
                              orderby car.DailyPrice descending
-                             select new CarDetailDto
+                             select new ColorDetailDto
                              {
                                  CarName = car.CarName,
                                  BrandName = brand.BrandName,

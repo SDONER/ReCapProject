@@ -1,6 +1,8 @@
 ﻿using Business.Concrete;
 using DataAccess.Concrete.EntitiyFramework;
 using DataAccess.Concrete.InMemory;
+using Entities;
+using Entities.Concrete;
 using System;
 
 namespace ConsoleUI
@@ -9,8 +11,74 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            CarTest();
+            //CarTest();
             //CategoryTest();
+            //CustomerTest();
+            //RentalTest();
+            //ReturnDateTest();
+            //ReturnDateErrorTest();
+            //CustomerAddTest();
+
+
+        }
+
+        private static void CustomerAddTest()
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            Customer customer = new Customer() { CustomerId = 4, CompanyName = "GMZLM LLC.", UserID = 23 };
+            var result = customerManager.Add(customer);
+            Console.WriteLine(result.Message);
+        }
+
+        private static void ReturnDateErrorTest()
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            Rental rental = new Rental() { Id = 1, CarId = 1, CustomerId = 21, RentDate = DateTime.Now };
+            var result = rentalManager.Add(rental);
+            Console.WriteLine(result.Message);
+        }
+
+        private static void ReturnDateTest()
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+
+            var result = rentalManager.GetRentDetails();
+            if (result.Success)
+            {
+                foreach (var rental in result.Data)
+                {
+                    Console.WriteLine(result.Success);
+                }
+            }
+        }
+
+        private static void RentalTest()
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+
+            var result = rentalManager.GetRentDetails();
+            if (result.Success)
+            {
+                foreach (var rental in rentalManager.GetRentDetails().Data)
+                {
+                    Console.WriteLine(rental.RentDate + " */* "+  rental.CarName);
+                }
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+           
+            
+        }
+
+        private static void CustomerTest()
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            foreach (var customer in customerManager.GetAll())
+            {
+                Console.WriteLine(customer.CompanyName + "*/*" + customer.UserID);
+            }
         }
 
         private static void CategoryTest()

@@ -9,7 +9,7 @@ namespace DataAccess.Abstract
 {
     public interface ICategoryDal:IEntityRepository<Category>
     {
-        List<CarDetailDto> GetCarDetails();
+        List<ColorDetailDto> GetCarDetails();
     }
 }
 

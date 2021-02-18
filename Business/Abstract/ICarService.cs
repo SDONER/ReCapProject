@@ -22,7 +22,7 @@ namespace Business.Abstract
         IDataResult<List<Car>> GetCarsByColorId(int Id);
 
 
-        IDataResult<List<CarDetailDto>> GetCarDetails();
+        IDataResult<List<ColorDetailDto>> GetCarDetails();
 
         IResult Add(Car car);
         IResult Update(Car car);
