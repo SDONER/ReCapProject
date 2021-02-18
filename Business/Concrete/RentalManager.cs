@@ -21,7 +21,7 @@ namespace Business.Concrete
 
         public IResult Add(Rental rental)
         {
-            if (rental.ReturnDate == null || _rentalDal.GetRentDetails(r => r.CarId == rental.CarId).Count > 0)
+            if (_rentalDal.GetRentDetails(r => r.CarId == rental.CarId).Count > 0)
             {
                 return new ErrorResult(Messages.RentalCancelled);
             }
