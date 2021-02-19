@@ -16,7 +16,7 @@ namespace ConsoleUI
             //CustomerTest();
             //RentalTest();
             //ReturnDateTest();
-            //ReturnDateErrorTest();
+            ReturnDateErrorTest();
             //CustomerAddTest();
 
 
@@ -33,7 +33,7 @@ namespace ConsoleUI
         private static void ReturnDateErrorTest()
         {
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
-            Rental rental = new Rental() { Id = 1, CarId = 1, CustomerId = 21, RentDate = DateTime.Now };
+            Rental rental = new Rental() { Id = 5, CarId = 3, CustomerId = 21, RentDate = DateTime.Now };
             var result = rentalManager.Add(rental);
             Console.WriteLine(result.Message);
         }
