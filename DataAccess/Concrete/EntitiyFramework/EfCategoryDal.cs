@@ -11,7 +11,7 @@ namespace DataAccess.Concrete.EntitiyFramework
 {
     public class EfCategoryDal : EfEntityRepositoryBase<Category, NorthwindContext>, ICategoryDal
     {
-        public List<ColorDetailDto> GetCarDetails()
+        public List<CategoryDetailDto> GetCategoryDetails()
         {
             throw new NotImplementedException();
         }

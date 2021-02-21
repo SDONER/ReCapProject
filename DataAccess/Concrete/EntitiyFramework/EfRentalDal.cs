@@ -31,27 +31,5 @@ namespace DataAccess.Concrete.EntitiyFramework
                 return result.ToList();
             }
         }
-
-        //public List<RentalDetailDto> GetRentDetails()
-        //{
-        //    using (NorthwindContext context = new NorthwindContext())
-        //    {
-        //        var result = from rental in context.Rentals 
-        //                     join car in context.Cars
-        //                     on rental.CarId equals car.CarId
-        //                     select new RentalDetailDto
-        //                     {
-        //                         Id = car.CarId,
-        //                         Description = car.Description,
-        //                         BrandId = car.BrandId,
-        //                         ColorId = car.ColorId,
-        //                         CarName = car.CarName,
-        //                         DailyPrice = car.DailyPrice,
-        //                         ModelYear = car.ModelYear
-        //                     };
-        //        return result.ToList();
-        //    }
-        //}
-
     }
 }

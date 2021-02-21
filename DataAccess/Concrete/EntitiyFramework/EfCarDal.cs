@@ -13,7 +13,7 @@ namespace DataAccess.Concrete.EntitiyFramework
 {
     public class EfCarDal : EfEntityRepositoryBase<Car, NorthwindContext>, ICarDal
     {
-        public List<ColorDetailDto> GetCarDetails()
+        public List<CarDetailDto> GetCarDetails()
         {
             using (NorthwindContext context = new NorthwindContext())
             {
@@ -23,7 +23,7 @@ namespace DataAccess.Concrete.EntitiyFramework
                              join color in context.Colors
                              on car.ColorId equals color.ColorId
                              orderby car.DailyPrice descending
-                             select new ColorDetailDto
+                             select new CarDetailDto
                              {
                                  CarName = car.CarName,
                                  BrandName = brand.BrandName,
@@ -32,6 +32,11 @@ namespace DataAccess.Concrete.EntitiyFramework
                              };
                 return result.ToList();
             }
+        }
+
+        List<ColorDetailDto> ICarDal.GetCarDetails()
+        {
+            throw new NotImplementedException();
         }
     }
 

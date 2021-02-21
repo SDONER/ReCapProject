@@ -10,9 +10,9 @@ using System.Linq;
 
 namespace DataAccess.Concrete.EntitiyFramework
 {
-    class EfColorDal : EfEntityRepositoryBase<Color, NorthwindContext>, IColorDal
+    public class EfColorDal : EfEntityRepositoryBase<Color, NorthwindContext>, IColorDal
     {
-        public List<ColorDetailDto> GetCarDetails()
+        public List<ColorDetailDto> GetColorDetails()
         {
             using (NorthwindContext context = new NorthwindContext())
             {
@@ -22,14 +22,11 @@ namespace DataAccess.Concrete.EntitiyFramework
                              orderby car.DailyPrice descending
                              select new ColorDetailDto
                              {
-                                 CarName = car.CarName,
-                                 ColorId = car.ColorId,
-                                 ColorName = color.ColorName,
+                                 ColorId = color.ColorId,
+                                 ColorName = color.ColorName                            
                              };
                 return result.ToList();
             }
         }
-
-        
     }
 }

@@ -41,7 +41,7 @@ namespace Business.Concrete
 
         public IResult Delete(Rental rental)
         {
-            return new SuccessDataResult<List<Rental>>(Messages.RentalDeleted);
+            return new SuccessDataResult<Rental>(Messages.RentalDeleted);
         }
 
         public IDataResult<List<Rental>> GetAll()
@@ -61,7 +61,7 @@ namespace Business.Concrete
 
         public IResult Update(Rental rental)
         {
-            return new SuccessDataResult<List<Rental>>(Messages.RentalUpdated);
+            return new SuccessDataResult<Rental>(Messages.RentalUpdated);
         }
     }
 }

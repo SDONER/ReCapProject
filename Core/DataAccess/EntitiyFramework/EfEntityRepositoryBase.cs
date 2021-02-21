@@ -51,12 +51,18 @@ namespace Core.DataAccess.EntitiyFramework
                 }
             }
 
-            public List<TEntity> GetById()
+        public List<TEntity> GetById(Expression<Func<TEntity, bool>> filter = null)
+        {
+            using (TContext context = new TContext())
             {
-                throw new NotImplementedException();
-            }
+                return filter == null ?
+                    context.Set<TEntity>().ToList() :
+                    context.Set<TEntity>().Where(filter).ToList();
 
-            public void Update(TEntity entity)
+            }
+        }
+
+        public void Update(TEntity entity)
             {
                 using (TContext context = new TContext())
                 {
