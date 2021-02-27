@@ -7,7 +7,7 @@ using System.Text;
 
 namespace DataAccess.Abstract
 {
-    public interface ICategoryDal:IEntityRepository<Category>
+    public interface ICategoryDal : IEntityRepository<Category>
     {
         List<CategoryDetailDto> GetCategoryDetails();
     }

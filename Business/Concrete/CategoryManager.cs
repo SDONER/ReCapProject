@@ -1,6 +1,11 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Business.ValidationRules;
+using Core.CrossCuttingConcerns.Validation;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,15 +21,35 @@ namespace Business.Concrete
             _categoryDal = categoryDal;
         }
 
-        public List<Category> GetAll()
+        public IResult Add(Category category)
         {
-            //İş kodları
-            return _categoryDal.GetAll();
+            ValidationTool.Validate(new CategoryValidator(), category);
+
+            _categoryDal.Add(category);
+
+            return new SuccessDataResult(Messages.CategoryAdded);
         }
 
-        public Category GetById(int categoryId)
+        public IResult Delete(Category category)
         {
-            return _categoryDal.Get(c => c.CategoryId == categoryId);
+            _categoryDal.Delete(category);
+            return new SuccessDataResult(Messages.CategoryDeleted);
+        }
+
+        public IDataResult<List<Category>> GetAll()
+        {
+            return new SuccessDataResult<List<Category>>(_categoryDal.GetAll(), Messages.CarsListed);
+        }
+
+        public IDataResult<List<Category>> GetById(int categoryId)
+        {
+            return new SuccessDataResult<List<Category>>(_categoryDal.GetById(c => c.CategoryId == categoryId));
+        }
+
+        public IResult Update(Category category)
+        {
+            _categoryDal.Update(category);
+            return new SuccessDataResult(Messages.CategoryUpdated);
         }
     }
 }
