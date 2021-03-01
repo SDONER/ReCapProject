@@ -36,7 +36,7 @@ namespace Business.Concrete
             }
             _rentalDal.Add(rental);
 
-            return new SuccessDataResult(Messages.RentalAdded);
+            return new SuccessResult(Messages.RentalAdded);
         }
 
         public IResult Delete(Rental rental)

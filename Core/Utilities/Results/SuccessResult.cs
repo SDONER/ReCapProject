@@ -4,14 +4,14 @@ using System.Text;
 
 namespace Core.Utilities.Results
 {
-    public class SuccessDataResult :Result
+    public class SuccessResult :Result
     {
-        public SuccessDataResult(string message) :base(true, message)
+        public SuccessResult(string message) :base(true, message)
         {
 
         }
 
-        public SuccessDataResult() : base(true)
+        public SuccessResult() : base(true)
         {
 
         }

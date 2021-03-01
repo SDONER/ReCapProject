@@ -15,5 +15,14 @@
     <ProjectReference Include="..\Entities\Entities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="NewFolder\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\76eb1881-df24-4b79-aed4-d369323b1e5a_3_1_2021.jpg" />
+    <None Include="wwwroot\images\DefaultImage.png" />
+  </ItemGroup>
+
 
 </Project>

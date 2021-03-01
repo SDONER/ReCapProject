@@ -21,12 +21,12 @@ namespace Business.Concrete
 
         public IResult Add(Customer customer)
         {
-            return new SuccessDataResult(Messages.CustomerAdded);
+            return new SuccessResult(Messages.CustomerAdded);
         }
 
         public IResult Delete(Customer customer)
         {
-            return new SuccessDataResult(Messages.CustomerDeleted);
+            return new SuccessResult(Messages.CustomerDeleted);
         }
 
         public List<Customer> GetAll()
@@ -46,7 +46,7 @@ namespace Business.Concrete
 
         public IResult Update(Customer customer)
         {
-            return new SuccessDataResult(Messages.CustomerUpdated);
+            return new SuccessResult(Messages.CustomerUpdated);
         }
     }
 }
