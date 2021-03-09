@@ -35,7 +35,7 @@ namespace Business.DependecyResolvers.AutoFac
             builder.RegisterType<UserManager>().As<IUserService>();
             builder.RegisterType<EfUserDal>().As<IUserDal>();
             builder.RegisterType<AuthManager>().As<IAuthService>();
-           // builder.RegisterType<JwtHelper>().As<ITokenHelper>();
+            builder.RegisterType<JwtHelper>().As<ITokenHelper>();
 
             builder.RegisterType<HttpContextAccessor>().As<IHttpContextAccessor>();
 

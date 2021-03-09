@@ -16,7 +16,6 @@ namespace DataAccess.Concrete.EntitiyFramework
         }
 
         public DbSet<Brand> Brands{ get; set; }
-       
         public DbSet<Color> Colors { get; set; }
         public DbSet<Car> Cars { get; set; }
         public DbSet<Customer> Customers { get; set; }
