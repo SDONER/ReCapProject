@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Core.Utilities.Security.Enycryption
 {
-    public class SigningCredentalsHelper
+    public class SigningCredentialsHelper
     {
-        public static SigningCredentials CreateSigningCridentials(SecurityKey security)
+        public static SigningCredentials CreateSigningCredentials(SecurityKey security)
         {
             return new SigningCredentials(security, SecurityAlgorithms.HmacSha512Signature);
         }

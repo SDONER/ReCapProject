@@ -1,5 +1,5 @@
 ﻿using Business.Abstract;
-using DataAccess.Abstract;
+using Entities;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -8,16 +8,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WepAPI.Controllers
+namespace WEBAPI2.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoriesController : ControllerBase
+    public class CarsController : ControllerBase
     {
         ICategoryService _categoryService;
         ICarService _carService;
 
-        public CategoriesController(ICategoryService categoryService, ICarService carService)
+        public CarsController(ICategoryService categoryService, ICarService carService)
         {
             _categoryService = categoryService;
             _carService = carService;
@@ -46,7 +46,6 @@ namespace WepAPI.Controllers
             return BadRequest(result);
         }
 
-
-
     }
 }
+

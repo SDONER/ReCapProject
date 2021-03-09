@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using DataAccess.Abstract;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,7 +16,7 @@ namespace WepAPI.Controllers
     {
         IRentalService _rentalService;
 
-public RentalsController(IRentalService rentalService)
+        public RentalsController(IRentalService rentalService)
         {
             _rentalService = rentalService;
         }
@@ -47,8 +48,8 @@ public RentalsController(IRentalService rentalService)
         [HttpGet("getrentdetails")]
         public IActionResult GetRentDetails()
         {
-            
-               var result = _rentalService.GetRentDetails();
+
+            var result = _rentalService.GetRentDetails();
             if (result.Success)
             {
                 return Ok(result.Data);

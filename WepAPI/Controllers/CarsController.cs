@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace WepAPI.Controllers
 {
+   
     [Route("api/[controller]")]
     [ApiController]
     public class CarsController : ControllerBase
@@ -33,7 +34,7 @@ namespace WepAPI.Controllers
             var result = _carService.GetAll();
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
             return BadRequest(result);
         }
