@@ -1,4 +1,4 @@
-﻿using Core.Entities.Concrate;
+﻿using Core.Entities.Concrete;
 using Core.Extention;
 using Core.Utilities.Security.Enycryption;
 using Microsoft.Extensions.Configuration;

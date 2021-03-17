@@ -1,5 +1,5 @@
 ﻿using Business.Abstract;
-using Core.Entities.Concrate;
+using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -17,26 +17,10 @@ namespace Business.Concrete
         {
             _userDal = userDal;
         }
-        public IResult Add(User user)
+        public void Add(User user)
         {
-            throw new NotImplementedException();
+            _userDal.Add(user);
         }
-
-        public IResult Delete(User user)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IDataResult<List<User>> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IResult Update(User user)
-        {
-            throw new NotImplementedException();
-        }
-
 
         public List<OperationClaim> GetClaims(User user)
         {
@@ -47,5 +31,7 @@ namespace Business.Concrete
         {
             return _userDal.Get(u => u.Email == email);
         }
+
+     
     }
 }

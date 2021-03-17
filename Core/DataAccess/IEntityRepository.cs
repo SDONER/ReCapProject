@@ -14,7 +14,5 @@ namespace Core.DataAccess
         void Add(T entitiy);
         void Update(T entitiy);
         void Delete(T entitiy);
-
-        //List<Category> GetByAllBrandId(int Id);
     }
 }

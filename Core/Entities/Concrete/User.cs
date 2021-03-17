@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Core.Entities.Concrate
+namespace Core.Entities.Concrete
 {
     public class User : IEntity
     {
