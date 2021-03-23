@@ -16,7 +16,7 @@ namespace ConsoleUI
             //CustomerTest();
             //RentalTest();
             //ReturnDateTest();
-            ReturnDateErrorTest();
+            //ReturnDateErrorTest();
             //CustomerAddTest();
 
 
@@ -25,7 +25,7 @@ namespace ConsoleUI
         private static void CustomerAddTest()
         {
             CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
-            Customer customer = new Customer() { CustomerId = 4, CompanyName = "GMZLM LLC.", UserID = 23 };
+            Customer customer = new Customer() { Id = 4, CompanyName = "GMZLM LLC.", UserID = 23 };
             var result = customerManager.Add(customer);
             Console.WriteLine(result.Message);
         }
@@ -72,14 +72,14 @@ namespace ConsoleUI
             
         }
 
-        private static void CustomerTest()
-        {
-            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
-            foreach (var customer in customerManager.GetAll())
-            {
-                Console.WriteLine(customer.CompanyName + "*/*" + customer.UserID);
-            }
-        }
+        //private static void CustomerTest()
+        //{
+        //    CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+        //    foreach (var customer in customerManager.GetAll())
+        //    {
+        //        Console.WriteLine(customer.CompanyName + "*/*" + customer.UserID);
+        //    }
+        //}
 
         private static void CategoryTest()
         {

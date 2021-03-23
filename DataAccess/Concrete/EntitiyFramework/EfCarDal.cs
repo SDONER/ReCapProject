@@ -19,7 +19,7 @@ namespace DataAccess.Concrete.EntitiyFramework
             {
                 var result = from car in context.Cars
                              join brand in context.Brands
-                             on car.BrandId equals brand.BrandId
+                             on car.BrandId equals brand.Id
                              join color in context.Colors
                              on car.ColorId equals color.ColorId
                              orderby car.DailyPrice descending

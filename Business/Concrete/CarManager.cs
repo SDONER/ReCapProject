@@ -58,7 +58,7 @@ namespace Business.Concrete
         }
 
         [CacheAspect]
-        [PerformanceAspect(10)]
+        //[PerformanceAspect(10)]
         public IDataResult<List<Car>> GetAll()
         {
             if (DateTime.Now.Hour == 23)

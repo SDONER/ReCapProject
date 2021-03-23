@@ -1,6 +1,5 @@
 ﻿using Business.Abstract;
-using DataAccess.Abstract;
-using Entities;
+using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -8,23 +7,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WepAPI.Controllers
+namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomersController : ControllerBase
+    public class BrandsController : ControllerBase
     {
-        ICustomerService _customerService;
+        IBrandService _brandService;
 
-        public CustomersController(ICustomerService customerService)
+        public BrandsController(IBrandService brandService)
         {
-            _customerService = customerService;
+            _brandService = brandService;
         }
 
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            var result = _customerService.GetAll();
+            var result = _brandService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
@@ -32,22 +31,10 @@ namespace WepAPI.Controllers
             return BadRequest(result);
         }
 
-
-        [HttpGet("getbyid")]
-        public IActionResult GetById(int Id)
-        {
-            var result = _customerService.GetByCustomerId(Id);
-            if (result.Success)
-            {
-                return Ok(result.Data);
-            }
-            return BadRequest(result);
-        }
-
         [HttpPost("add")]
-        public IActionResult Add(Customer customer)
+        public IActionResult Add(Brand brand)
         {
-            var result = _customerService.Add(customer);
+            var result = _brandService.Add(brand);
             if (result.Success)
             {
                 return Ok(result);
@@ -56,9 +43,9 @@ namespace WepAPI.Controllers
         }
 
         [HttpPost("delete")]
-        public IActionResult Delete(Customer customer)
+        public IActionResult Delete(Brand brand)
         {
-            var result = _customerService.Delete(customer);
+            var result = _brandService.Delete(brand);
             if (result.Success)
             {
                 return Ok(result);
@@ -67,9 +54,9 @@ namespace WepAPI.Controllers
         }
 
         [HttpPost("update")]
-        public IActionResult Update(Customer customer)
+        public IActionResult Update(Brand brand)
         {
-            var result = _customerService.Update(customer);
+            var result = _brandService.Update(brand);
             if (result.Success)
             {
                 return Ok(result);

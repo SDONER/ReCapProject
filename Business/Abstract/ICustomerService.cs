@@ -9,8 +9,9 @@ namespace Business.Abstract
 {
     public interface ICustomerService
     {
-        List<Customer> GetAll();
-        Customer GetById(int userId);
+        IDataResult<List<Customer>> GetAll();
+
+        IDataResult<List<Customer>> GetByCustomerId(int customerId);
 
         List<CustomerDetailDto> GetCustomerDetails();
 

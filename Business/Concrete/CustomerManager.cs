@@ -29,14 +29,14 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CustomerDeleted);
         }
 
-        public List<Customer> GetAll()
+        public IDataResult<List<Customer>> GetAll()
         {
-            return _customerDal.GetAll();
+            return new SuccessDataResult<List<Customer>>(_customerDal.GetAll(), Messages.CustomerListed);
         }
 
-        public Customer GetById(int userId)
+        public IDataResult<List<Customer>> GetByCustomerId(int Id)
         {
-            return _customerDal.Get(c => c.UserID == userId);
+            return new SuccessDataResult<List<Customer>>(_customerDal.GetAll(c => c.Id == Id));
         }
 
         public List<CustomerDetailDto> GetCustomerDetails()

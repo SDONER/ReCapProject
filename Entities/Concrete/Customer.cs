@@ -9,7 +9,7 @@ namespace Entities
     public class Customer : IEntity
     {
         //[Key]
-        public int CustomerId { get; set; }
+        public int Id { get; set; }
         public int UserID { get; set; }
         public string CompanyName { get; set; }
 
