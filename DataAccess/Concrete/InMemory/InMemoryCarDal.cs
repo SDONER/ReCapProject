@@ -1,4 +1,5 @@
-﻿using DataAccess.Abstract;
+﻿using Core.Utilities.Results;
+using DataAccess.Abstract;
 using Entities;
 using Entities.DTOs;
 using System;
@@ -92,9 +93,5 @@ namespace DataAccess.Concrete.InMemory
 
         }
 
-        List<ColorDetailDto> ICarDal.GetCarDetails()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

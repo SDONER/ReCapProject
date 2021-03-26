@@ -10,8 +10,8 @@ namespace Entities.DTOs
         public int Id { get; set; }
         public int ColorId { get; set; }
         public int CustomerId { get; set; }
-        public DateTime RentDate { get; set; }
-        public DateTime ReturnDate { get; set; }
+        public DateTime? RentDate { get; set; }
+        public DateTime? ReturnDate { get; set; }
 
         public int BrandId { get; set; }
         public int CarId { get; set; }

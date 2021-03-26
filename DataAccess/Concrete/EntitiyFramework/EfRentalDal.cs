@@ -19,7 +19,7 @@ namespace DataAccess.Concrete.EntitiyFramework
             {
                 var result = from rental in  context.Rentals 
                              join car in context.Cars
-                             on rental.CarId equals car.CarId
+                             on rental.CarId equals car.Id
                              select new RentalDetailDto
                              {
                                  Id = car.CarId,

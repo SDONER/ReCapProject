@@ -6,6 +6,7 @@ using Entities;
 using Entities.DTOs;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Business.Concrete
@@ -39,9 +40,9 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Customer>>(_customerDal.GetAll(c => c.Id == Id));
         }
 
-        public List<CustomerDetailDto> GetCustomerDetails()
+        public IDataResult<List<CustomerDetailDto>> GetCustomerDetails()
         {
-            return _customerDal.GetCustomerDetails();
+            return new SuccessDataResult<List<CustomerDetailDto>>(_customerDal.GetCustomerDetails().ToList(), Messages.CarsListed);
         }
 
         public IResult Update(Customer customer)

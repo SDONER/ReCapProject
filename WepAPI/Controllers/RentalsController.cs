@@ -44,15 +44,14 @@ namespace WepAPI.Controllers
             }
             return BadRequest(result);
         }
-
+       
         [HttpGet("getrentdetails")]
-        public IActionResult GetRentDetails()
+        public IActionResult GetRentDetails ()
         {
-
             var result = _rentalService.GetRentDetails();
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
             return BadRequest(result);
         }

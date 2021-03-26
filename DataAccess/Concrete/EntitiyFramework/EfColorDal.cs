@@ -18,11 +18,11 @@ namespace DataAccess.Concrete.EntitiyFramework
             {
                 var result = from color in context.Colors
                              join car  in context.Cars
-                             on color.ColorId equals car.ColorId
+                             on color.Id equals car.ColorId
                              orderby car.DailyPrice descending
                              select new ColorDetailDto
                              {
-                                 ColorId = color.ColorId,
+                                 ColorId = color.Id,
                                  ColorName = color.ColorName                            
                              };
                 return result.ToList();

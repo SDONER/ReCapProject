@@ -21,7 +21,7 @@ namespace DataAccess.Concrete.EntitiyFramework
                              join brand in context.Brands
                              on car.BrandId equals brand.Id
                              join color in context.Colors
-                             on car.ColorId equals color.ColorId
+                             on car.ColorId equals color.Id
                              orderby car.DailyPrice descending
                              select new CarDetailDto
                              {
@@ -29,15 +29,13 @@ namespace DataAccess.Concrete.EntitiyFramework
                                  BrandName = brand.BrandName,
                                  ColorName = color.ColorName,
                                  DailyPrice = car.DailyPrice
+                                 
                              };
                 return result.ToList();
             }
         }
 
-        List<ColorDetailDto> ICarDal.GetCarDetails()
-        {
-            throw new NotImplementedException();
-        }
+    
     }
 
 

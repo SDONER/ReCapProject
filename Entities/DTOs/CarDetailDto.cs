@@ -22,7 +22,7 @@ namespace Entities.DTOs
         public string ColorName { get; set; }
         public string CustomerId { get; set; }
         public int EmployeeId { get; set; }
-        public DateTime OrderDate { get; set; }
+        public DateTime? OrderDate { get; set; }
         public string ShipCity { get; set; }
         public int OrderCarId { get; set; }
     }
