@@ -8,7 +8,6 @@ namespace Entities.DTOs
     public class RentalDetailDto : IDto
     {
         public int Id { get; set; }
-        public int ColorId { get; set; }
         public int CustomerId { get; set; }
         public DateTime? RentDate { get; set; }
         public DateTime? ReturnDate { get; set; }
@@ -28,5 +27,9 @@ namespace Entities.DTOs
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+
+        public string ColorName { get; set; }
+
+
     }
 }

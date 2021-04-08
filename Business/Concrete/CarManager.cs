@@ -62,7 +62,7 @@ namespace Business.Concrete
         //[PerformanceAspect(10)]
         public IDataResult<List<Car>> GetAll()
         {
-            if (DateTime.Now.Hour == 21)
+            if (DateTime.Now.Hour == 25)
             {
                 return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
             }
@@ -112,7 +112,7 @@ namespace Business.Concrete
         [CacheAspect]
         public IDataResult<Car> GetById(int Id)
         {
-            return new SuccessDataResult<Car>(_carDal.Get(c => c.CarId == Id));
+            return new SuccessDataResult<Car>(_carDal.Get(c => c.Id == Id));
         }
 
         public IDataResult<List<Car>> GetByModelYear(int modelYear)
@@ -122,22 +122,32 @@ namespace Business.Concrete
 
         public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
-            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails().ToList(), Messages.CarsListed);
+           return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(), Messages.CarsListed);
+           // return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails());
+        }
+        public IDataResult<List<CarDetailDto>> GetCarDetailsByCarId(int carId)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c=>c.Id==carId), Messages.CarsListed);
         }
 
-        public IDataResult<List<Car>> GetCarsByBrandId(int Id)
+        public IDataResult<List<Car>> GetCarsByBrandId(int brandId)
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.BrandId == Id));
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.BrandId == brandId));
         }
 
         public IDataResult<List<Car>> GetCarsByCarId(int Id)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.Id == Id));
         }
 
         public IDataResult<List<Car>> GetCarsByColorId(int colorId)
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.ColorId == colorId));
+        }
+
+        public IDataResult<List<CarDetailDto>> GetImageByCarId(int carId)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.Id == carId), Messages.CarsListed);
         }
 
         [SecuredOperation("car.update,admin")]

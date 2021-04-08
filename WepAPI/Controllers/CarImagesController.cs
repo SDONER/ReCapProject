@@ -46,7 +46,19 @@ namespace WepAPI.Controllers
                 return BadRequest(result);
             }
 
-            [HttpPost("add")]
+
+            [HttpGet("getimagesbycarid")]
+            public IActionResult GetImagesByCarId(int Id)
+            {
+               var result = _carImageService.GetImagesByCarId(Id);
+               if (result.Success)
+               {
+                return Ok(result.Data);
+               }
+               return BadRequest(result);
+            }
+
+        [HttpPost("add")]
             public IActionResult Add([FromForm(Name = ("Image"))] IFormFile file, [FromForm] CarImage carImage)
             {
                 var result = _carImageService.Add(file,carImage);

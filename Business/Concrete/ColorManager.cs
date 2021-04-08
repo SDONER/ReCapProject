@@ -36,11 +36,16 @@ namespace Business.Concrete
 
         public IDataResult<List<Color>> GetAll()
         {
-            if (DateTime.Now.Hour == 21)
+            if (DateTime.Now.Hour == 25)
             {
                 return new ErrorDataResult<List<Color>>(Messages.MaintenanceTime);
             }
             return new SuccessDataResult<List<Color>>(_colorDal.GetAll(), Messages.ColorListed);
+        }
+
+        public IDataResult<List<Color>> GetByColorId(int colorId)
+        {
+            return new SuccessDataResult<List<Color>>(_colorDal.GetAll(c => c.Id == colorId));
         }
 
         public IResult Update(Color color)

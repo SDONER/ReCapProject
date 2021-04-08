@@ -62,9 +62,9 @@ namespace Business.Concrete
             throw new NotImplementedException();
         }
 
-        public IDataResult<List<CarImage>> GetImagesByCarId(int id)
+        public IDataResult<List<CarImage>> GetImagesByCarId(int Id)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll(c => c.Id == Id));
         }
 
         public IResult Update(IFormFile file, CarImage carImage)

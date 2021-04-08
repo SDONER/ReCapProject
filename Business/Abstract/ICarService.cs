@@ -21,7 +21,7 @@ namespace Business.Abstract
         IDataResult<List<Car>> GetByDescription(string Id);
         IDataResult<List<Car>> GetByModelYear(int Id);
         IDataResult<List<Car>> GetByBrandName(string brandName);
-        IDataResult<List<Car>> GetCarsByBrandId(int Id);
+        IDataResult<List<Car>> GetCarsByBrandId(int brandId);
         IDataResult<List<Car>> GetCarsByCarId(int Id);
 
         IDataResult<List<CarDetailDto>> GetCarDetails();
@@ -30,6 +30,8 @@ namespace Business.Abstract
         IDataResult<List<Car>> GetByBrandName(int MinLength, int MaxLength);
 
         IResult AddTransactionalTest(Car car);
-
+        IDataResult<List<Car>> GetCarsByColorId(int colorId);
+        IDataResult<List<CarDetailDto>> GetCarDetailsByCarId(int carId);
+        IDataResult<List<CarDetailDto>> GetImageByCarId(int carId);
     }
 }

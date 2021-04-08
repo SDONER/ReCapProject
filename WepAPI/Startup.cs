@@ -78,6 +78,8 @@ namespace WepAPI
 
             app.UseAuthentication();
 
+            app.UseStaticFiles();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

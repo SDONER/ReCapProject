@@ -18,7 +18,7 @@ namespace DataAccess.Concrete.EntitiyFramework
             {
                 var result = from customer in context.Customers
                              join user in context.Users
-                             on customer.UserID equals user.Id
+                             on customer.UserId equals user.Id
                              select new CustomerDetailDto
                              {
                                  UserID = user.Id ,

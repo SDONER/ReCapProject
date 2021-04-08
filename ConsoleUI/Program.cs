@@ -25,7 +25,7 @@ namespace ConsoleUI
         private static void CustomerAddTest()
         {
             CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
-            Customer customer = new Customer() { Id = 4, CompanyName = "GMZLM LLC.", UserID = 23 };
+            Customer customer = new Customer() { Id = 4, CompanyName = "GMZLM LLC.", UserId = 23 };
             var result = customerManager.Add(customer);
             Console.WriteLine(result.Message);
         }
@@ -90,26 +90,26 @@ namespace ConsoleUI
            // }
         }
 
-        private static void CarTest()
-        {
+        //private static void CarTest()
+        //{
 
-            CarManager carManager = new CarManager(new EfCarDal());
+        //    CarManager carManager = new CarManager(new EfCarDal());
 
-            var result = carManager.GetCarDetails();
-            if (result.Success == true)
-            {
-                foreach (var car in result.Data)
-                {
-                    Console.WriteLine("Fiyatı 0'dan büyük olan araçlar listelendi.");
-                    Console.WriteLine("Car Name" + " */* " + car.CarName + " */* " + "Color Name" + " */* " + car.ColorName + " */* "+"Brand Name" + " */* " + car.BrandName + " */* " + "Daily Price"+ " */* " + car.DailyPrice);
-                }                   
-            }
-            else
-            {
-                Console.WriteLine(result.Message);
-            }
+        //    var result = carManager.GetCarDetails();
+        //    if (result.Success == true)
+        //    {
+        //        foreach (var car in result.Data)
+        //        {
+        //            Console.WriteLine("Fiyatı 0'dan büyük olan araçlar listelendi.");
+        //            Console.WriteLine("Car Name" + " */* " + car.CarName + " */* " + "Color Name" + " */* " + car.ColorName + " */* "+"Brand Name" + " */* " + car.BrandName + " */* " + "Daily Price"+ " */* " + car.DailyPrice);
+        //        }                   
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine(result.Message);
+        //    }
 
-        }
+        //}
 
     }
 }

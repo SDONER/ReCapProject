@@ -18,15 +18,27 @@ namespace DataAccess.Concrete.EntitiyFramework
             using (NorthwindContext context = new NorthwindContext())
             {
                 var result = from rental in  context.Rentals 
-                             join car in context.Cars
-                             on rental.CarId equals car.Id
+                             join car in context.Cars on rental.CarId equals car.Id
+                             join customer in context.Customers on rental.CustomerId equals customer.Id
+                             join user in context.Users on rental.CustomerId equals user.Id
+                             join brand in context.Brands on car.BrandId equals brand.Id
+                             join color in context.Colors on car.ColorId equals color.Id
+
                              select new RentalDetailDto
                              {
-                                 Id = car.CarId,
+                                 Id = rental.Id,
+                                 CarId = rental.CarId,
+                                 BrandId = brand.Id,
+                                 BrandName = brand.BrandName,
+                                 ColorName = color.ColorName,
                                  Description = car.Description,
                                  CarName = car.CarName,
                                  DailyPrice = car.DailyPrice,
-                                 ModelYear = car.ModelYear
+                                 ModelYear = car.ModelYear,
+                                 RentDate = rental.RentDate,
+                                 ReturnDate = rental.ReturnDate,
+                                 CompanyName = user.FirstName + " " + user.LastName,
+
                              };
                 return result.ToList();
             }
