@@ -49,7 +49,7 @@ namespace Business.Concrete
 
         public IDataResult<CarImage> Get(int id)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<CarImage>(_carImageDal.Get(c => c.Id == id));
         }
 
         public IDataResult<List<CarImage>> GetAll()

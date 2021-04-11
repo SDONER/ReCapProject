@@ -51,6 +51,7 @@ namespace Core.DataAccess.EntitiyFramework
                 }
             }
 
+
         public List<TEntity> GetById(Expression<Func<TEntity, bool>> filter = null)
         {
             using (TContext context = new TContext())
@@ -70,7 +71,7 @@ namespace Core.DataAccess.EntitiyFramework
                     updatedEntity.State = EntityState.Modified;
                     context.SaveChanges();
                 }
-            }
+        }
         
     }
 }

@@ -38,36 +38,36 @@ namespace ConsoleUI
             Console.WriteLine(result.Message);
         }
 
-        private static void ReturnDateTest()
-        {
-            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+        //private static void ReturnDateTest()
+        //{
+        //    RentalManager rentalManager = new RentalManager(new EfRentalDal());
 
-            var result = rentalManager.GetRentDetails();
-            if (result.Success)
-            {
-                foreach (var rental in result.Data)
-                {
-                    Console.WriteLine(result.Success);
-                }
-            }
-        }
+        //    var result = rentalManager.GetRentDetails();
+        //    if (result.Success)
+        //    {
+        //        foreach (var rental in result.Data)
+        //        {
+        //            Console.WriteLine(result.Success);
+        //        }
+        //    }
+        //}
 
-        private static void RentalTest()
-        {
-            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+        //private static void RentalTest()
+        //{
+        //    RentalManager rentalManager = new RentalManager(new EfRentalDal());
 
-            var result = rentalManager.GetRentDetails();
-            if (result.Success)
-            {
-                foreach (var rental in rentalManager.GetRentDetails().Data)
-                {
-                    Console.WriteLine(rental.RentDate + " */* "+  rental.CarName);
-                }
-            }
-            else
-            {
-                Console.WriteLine(result.Message);
-            }
+        //    var result = rentalManager.GetRentDetails();
+        //    if (result.Success)
+        //    {
+        //        foreach (var rental in rentalManager.GetRentDetails().Data)
+        //        {
+        //            Console.WriteLine(rental.RentDate + " */* "+  rental.CarName);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine(result.Message);
+        //    }
            
             
         }
@@ -81,9 +81,9 @@ namespace ConsoleUI
         //    }
         //}
 
-        private static void CategoryTest()
-        {
-            CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+        //private static void CategoryTest()
+        //{
+        //    CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
             //foreach (var category in categoryManager.GetAll())
             //{
            //     Console.WriteLine(category.CategoryName);
@@ -111,5 +111,5 @@ namespace ConsoleUI
 
         //}
 
-    }
-}
+//    }
+//}

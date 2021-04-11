@@ -49,14 +49,15 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(),Messages.RentalListed);
         }
 
-        public IDataResult<List<Rental>> GetById(int userId)
+        public IDataResult<List<Rental>> GetByUserId(int userId)
         {
             throw new NotImplementedException();
         }
 
-        public IDataResult<List<RentalDetailDto>> GetRentDetails()
+        public IDataResult<List<RentalDetailDto>> GetRentDetails(int carId)
         {
-            return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetRentDetails(), Messages.RentalDetailListed);
+            //return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetRentDetails(), Messages.RentalDetailListed);
+            return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetRentDetails(c => c.CarId == carId), Messages.CarsListed);
         }
 
         public IResult Update(Rental rental)

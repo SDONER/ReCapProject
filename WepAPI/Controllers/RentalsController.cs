@@ -22,7 +22,7 @@ namespace WepAPI.Controllers
         }
 
         [HttpGet("getall")]
-        public IActionResult GetAll(Rental rental)
+        public IActionResult GetAll()
         {
             var result = _rentalService.GetAll();
             {
@@ -34,21 +34,21 @@ namespace WepAPI.Controllers
             }
         }
 
-        [HttpGet("getbyid")]
-        public IActionResult GetById(int Id)
+        [HttpGet("getbyuserid")]
+        public IActionResult GetByuserId(int userId)
         {
-            var result = _rentalService.GetById(Id);
+            var result = _rentalService.GetByUserId(userId);
             if (result.Success)
             {
                 return Ok(result.Data);
             }
             return BadRequest(result);
         }
-       
+
         [HttpGet("getrentdetails")]
-        public IActionResult GetRentDetails ()
+        public IActionResult GetRentDetails (int carId)
         {
-            var result = _rentalService.GetRentDetails();
+            var result = _rentalService.GetRentDetails(carId);
             if (result.Success)
             {
                 return Ok(result);
