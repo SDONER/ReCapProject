@@ -20,7 +20,10 @@ namespace Business.Concrete
 
         public IResult Add(Brand brand)
         {
-            throw new NotImplementedException();
+
+            _brandDal.Add(brand);
+
+            return new SuccessResult(Messages.BrandAdded);
         }
 
         public IResult Delete(Brand brand)
@@ -39,7 +42,8 @@ namespace Business.Concrete
 
         public IResult Update(Brand brand)
         {
-            throw new NotImplementedException();
+            _brandDal.Update(brand);
+            return new SuccessResult(Messages.BrandUpdated);
         }
     }
 }
