@@ -22,6 +22,7 @@ namespace DataAccess.Concrete.EntitiyFramework
                              orderby car.DailyPrice descending
                              select new ColorDetailDto
                              {
+                                 
                                  CarId = car.Id,
                                  ColorId = color.Id,
                                  ColorName = color.ColorName                            
